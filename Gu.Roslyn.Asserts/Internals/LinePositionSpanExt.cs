@@ -1,4 +1,4 @@
-namespace Gu.Roslyn.Asserts.Internals
+﻿namespace Gu.Roslyn.Asserts.Internals
 {
     using Microsoft.CodeAnalysis.Text;
 
@@ -17,6 +17,16 @@ namespace Gu.Roslyn.Asserts.Internals
         {
             return span.Start.TryGetIndex(text, out _) &&
                    span.End.TryGetIndex(text, out _);
+        }
+
+        /// <summary>
+        /// Returns a <see cref="LinePosition"/> that is shifted downwards in the file by the given delta.
+        /// </summary>
+        internal static LinePositionSpan AddLineDelta(this LinePositionSpan span, int delta)
+        {
+            return new LinePositionSpan(
+                span.Start.AddLineDelta(delta),
+                span.End.AddLineDelta(delta));
         }
     }
 }

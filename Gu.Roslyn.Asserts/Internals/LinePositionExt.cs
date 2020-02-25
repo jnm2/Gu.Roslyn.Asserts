@@ -1,4 +1,4 @@
-namespace Gu.Roslyn.Asserts.Internals
+﻿namespace Gu.Roslyn.Asserts.Internals
 {
     using Microsoft.CodeAnalysis.Text;
 
@@ -67,6 +67,14 @@ namespace Gu.Roslyn.Asserts.Internals
                 result = -1;
                 return false;
             }
+        }
+
+        /// <summary>
+        /// Returns a <see cref="LinePosition"/> that is shifted downwards in the file by the given delta.
+        /// </summary>
+        internal static LinePosition AddLineDelta(this LinePosition linePosition, int delta)
+        {
+            return new LinePosition(linePosition.Line + delta, linePosition.Character);
         }
     }
 }

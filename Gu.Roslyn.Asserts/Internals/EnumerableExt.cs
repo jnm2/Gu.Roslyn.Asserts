@@ -390,5 +390,21 @@
 
             return max;
         }
+
+        /// <summary>
+        /// Unwraps non-null elements and skips nulls.
+        /// </summary>
+        /// <typeparam name="T">The type of the elements of <paramref name="source"/>.</typeparam>
+        internal static IEnumerable<T> Values<T>(this IEnumerable<T?> source)
+            where T : struct
+        {
+            foreach (var element in source)
+            {
+                if (element is { } value)
+                {
+                    yield return value;
+                }
+            }
+        }
     }
 }

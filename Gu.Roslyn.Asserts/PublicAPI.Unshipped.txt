@@ -1,1 +1,5 @@
-﻿
+﻿Gu.Roslyn.Asserts.DiagnosticFixAssert
+Gu.Roslyn.Asserts.DiagnosticFixAssert.DiagnosticsWithNoFix(string syntaxWithDiagnosticsAsComments) -> void
+Gu.Roslyn.Asserts.DiagnosticFixAssert.NoDiagnostics(string syntax) -> void
+Gu.Roslyn.Asserts.DiagnosticFixAssert.SingleFix(string syntaxWithFixDiagnosticAsComment, string title, string expectedDiff) -> void
+static Gu.Roslyn.Asserts.DiagnosticFixAssert.Create<TDiagnosticAnalyzer, TCodeFixProvider>() -> Gu.Roslyn.Asserts.DiagnosticFixAssert
